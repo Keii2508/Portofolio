@@ -1,7 +1,6 @@
 {
   "version": 2,
   "buildCommand": "npm install && npm run build",
-  "installCommand": "curl -sS https://getcomposer.org/installer | php && php composer.phar install --no-dev --optimize-autoloader",
   "outputDirectory": "public",
   "functions": {
     "api/index.php": {
