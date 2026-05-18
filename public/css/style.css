@@ -1,0 +1,621 @@
+/* public/css/style.css */
+
+/* --- Variabel Warna & Font --- */
+:root {
+    --bg-main: #0a0a0a;          /* Hitam Pekat */
+    --bg-secondary: #111111;     /* Hitam Abu-abu buat card/section */
+    --accent-red: #e63946;       /* Merah Aksen */
+    --accent-red-hover: #c92a36; /* Merah Hover */
+    --accent-blue-arch: #2a64f6; /* Biru Sapphire buat Arch Foto */
+    --text-primary: #ffffff;    /* Putih */
+    --text-muted: #888888;       /* Abu-abu Teks */
+    --font-body: 'Poppins', sans-serif;
+    --font-heading: 'Oswald', sans-serif;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+}
+
+.accent-red { color: var(--accent-red); }
+.text-muted { color: var(--text-muted) !important; }
+
+/* --- Buttons --- */
+.btn-custom-red {
+    background-color: var(--accent-red);
+    color: white;
+    border-radius: 50px;
+    padding: 10px 25px;
+    font-weight: bold;
+    border: none;
+    transition: 0.3s;
+}
+.btn-custom-red:hover {
+    background-color: var(--accent-red-hover);
+    color: white;
+}
+
+/* --- Navigation --- */
+.navbar-custom {
+    padding: 20px 0;
+}
+.navbar-brand-custom {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: white !important;
+}
+.nav-link-custom {
+    color: var(--text-primary) !important;
+    font-weight: 500;
+    padding: 0 15px !important;
+}
+.nav-link-custom:hover {
+    color: var(--accent-red) !important;
+}
+.nav-item.active .nav-link-custom {
+    color: var(--accent-red) !important;
+    border-bottom: 2px solid var(--accent-red);
+}
+.navbar-toggler {
+    border-color: rgba(255,255,255,0.1);
+}
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* --- Hero Section --- */
+.hero-title {
+    font-size: clamp(3.5rem, 8vw, 7.5rem);
+    font-weight: 900;
+    letter-spacing: 2px;
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+.hero-subtitle {
+    font-size: 0.9rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+/* Stats Section */
+.stats-section {
+    border-top: 1px solid #222;
+    border-bottom: 1px solid #222;
+    padding: 40px 0;
+    margin-top: 80px;
+}
+.stat-item h4 { margin: 0; font-weight: bold; font-size: 1.8rem; }
+.stat-item p { margin: 0; color: #aaaaaa; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;}
+
+/* Social Icons (Samping) */
+.social-icons-side {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 3;
+}
+.social-icon-circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(255,255,255,0.1);
+    color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: 0.3s;
+}
+.social-icon-circle:hover {
+    background-color: rgba(255,255,255,0.05);
+    border-color: rgba(255,255,255,0.3);
+}
+
+/* --- About Us Section --- */
+.about-section {
+    background-color: var(--bg-secondary); 
+    border-radius: 30px;
+    padding: 80px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+.about-heading {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+/* Check List */
+.check-list-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(255,255,255,0.1);
+    color: var(--accent-red);
+    border-radius: 4px;
+    width: 20px;
+    height: 20px;
+    font-size: 0.8rem;
+    margin-right: 10px;
+}
+
+/* Foto & Arch (Sapphire Blue) */
+.about-image-wrapper {
+    background-color: var(--accent-red); /* Biru Sapphire */
+    border-radius: 250px 250px 0 0;
+    padding: 20px 20px 0 20px;
+    text-align: center;
+    height: 100%;
+    min-height: 550px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    position: relative;
+    overflow: hidden; /* Penting biar foto nggak tumpah */
+}
+.about-image-wrapper img {
+    object-fit: contain;
+    max-height: 110%; /* Biar kakinya agak overlap sedikit keluar */
+    position: relative;
+    z-index: 1;
+}
+
+/* Internship Ready Badge Ala Referensi */
+.internship-badge {
+    position: absolute;
+    top: 15%;
+    left: -30px;
+    background-color: black;
+    color: white;
+    border-radius: 50px;
+    padding: 8px 25px;
+    text-align: center;
+    z-index: 2;
+    border: 1px solid #333;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+.internship-badge p {
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.internship-badge .badge-line {
+    width: 30px;
+    height: 2px;
+    background-color: var(--accent-red);
+    margin: 3px auto 0;
+}
+
+/* Lingkaran Kecil Dekorasi Hitam Ala Referensi */
+.small-black-circle {
+    position: absolute;
+    bg-color: black;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    bottom: 30px;
+    left: -20px;
+    border: 5px solid var(--bg-main);
+    z-index: 2;
+}
+
+/* --- Rating/Reviews Ala Referensi --- */
+.rating-reviews {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 10px;
+    padding: 10px 15px;
+    gap: 15px;
+}
+.rating-score {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin: 0;
+}
+.stars {
+    color: var(--accent-red);
+    font-size: 0.9rem;
+}
+.user-avatars {
+    display: flex;
+    margin-right: -10px;
+}
+.user-avatars img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 2px solid #000;
+    object-fit: cover;
+    margin-left: -10px;
+}
+.user-avatars img:first-child { margin-left: 0; }
+/* --- Hero Image Section --- */
+.hero-image-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 450px;
+}
+
+.hero-red-circle {
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    background-color: var(--accent-red);
+    border-radius: 50%;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.hero-photo {
+    position: relative;
+    z-index: 2;
+    max-width: 100%;
+    max-height: 550px;
+    object-fit: contain;
+}
+
+/* Biar box rating-nya melayang di atas foto */
+.rating-reviews-hero {
+    position: absolute;
+    bottom: 20px;
+    right: 0px;
+    z-index: 3;
+    background-color: var(--bg-main); /* Biar background boxnya tetap hitam pekat */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+}
+
+/* Penyesuaian buat layar HP biar box ratingnya di tengah */
+@media (max-width: 991px) {
+    .rating-reviews-hero {
+        position: relative;
+        bottom: 0;
+        right: 0;
+        margin-top: 20px;
+    }
+}
+
+/* =========================================
+   RESPONSIVE ADJUSTMENTS (HP & TABLET)
+   ========================================= */
+
+/* Layar Tablet & HP (di bawah 992px) */
+@media (max-width: 991px) {
+    /* Kurangin padding biar nggak terlalu sempit di layar kecil */
+    .about-section {
+        padding: 40px 30px;
+        margin-top: 60px;
+        margin-bottom: 60px;
+    }
+    
+    /* Sesuaikan ukuran Hero */
+    .hero-image-container {
+        min-height: 350px;
+        margin-top: 40px;
+    }
+    .hero-red-circle {
+        width: 250px;
+        height: 250px;
+    }
+    .hero-photo {
+        max-height: 400px;
+    }
+    
+    /* Balikin box rating biar nggak numpuk melayang berantakan di HP */
+    .rating-reviews-hero {
+        position: relative;
+        bottom: auto;
+        right: auto;
+        margin-top: -20px;
+        display: inline-flex;
+        justify-content: center;
+        width: 100%;
+    }
+    
+    /* Sesuaikan ukuran About Image */
+    .about-image-wrapper {
+        min-height: 400px;
+        margin-top: 50px;
+        border-radius: 150px 150px 0 0;
+    }
+    
+    /* Pindahin badge Internship ke tengah atas biar aman */
+    .internship-badge {
+        top: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    /* Sembunyiin dekorasi bulat kecil biar layar HP nggak keramaian */
+    .small-black-circle {
+        display: none; 
+    }
+}
+
+/* Layar HP Kecil (di bawah 576px) */
+@media (max-width: 575px) {
+    .about-section {
+        padding: 30px 20px;
+    }
+    .hero-red-circle {
+        width: 200px;
+        height: 200px;
+    }
+    .hero-photo {
+        max-height: 350px;
+    }
+    .stat-item h4 {
+        font-size: 1.5rem;
+    }
+    .stat-item p {
+        font-size: 0.75rem;
+    }
+}
+
+/* --- Experience Page Styles --- */
+.timeline-container {
+    position: relative;
+    padding-left: 50px;
+}
+
+/* Garis vertikal di sebelah kiri */
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #222;
+}
+
+.experience-card {
+    background-color: var(--bg-secondary);
+    border: 1px solid #222;
+    border-radius: 20px;
+    padding: 40px;
+    position: relative;
+    transition: 0.3s;
+}
+
+.experience-card:hover {
+    border-color: var(--accent-red);
+    transform: translateY(-5px);
+}
+
+/* Titik merah di timeline */
+.timeline-dot {
+    position: absolute;
+    left: -42px;
+    top: 45px;
+    width: 16px;
+    height: 16px;
+    background-color: var(--accent-red);
+    border-radius: 50%;
+    border: 4px solid var(--bg-main);
+    z-index: 2;
+}
+
+.exp-date {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.exp-company {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+}
+
+.skill-tag {
+    /* Background merah tapi agak transparan (15% opacity) biar elegan di dark mode */
+    background-color: rgba(230, 57, 70, 0.15); 
+    border: 1px solid var(--accent-red); /* Garis pinggir merah pekat */
+    color: #ffffff; /* Teks warna putih biar gampang dibaca */
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    display: inline-block;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    font-weight: 500; /* Ditebelin dikit font-nya */
+    letter-spacing: 0.5px;
+}
+/* --- Projects Page Styles --- */
+.project-card {
+    background-color: var(--bg-secondary);
+    border: 1px solid #222;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    height: 100%;
+}
+
+.project-card:hover {
+    border-color: var(--accent-red);
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(230, 57, 70, 0.2);
+}
+
+.project-img-container {
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+}
+
+.project-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+.project-card:hover .project-img-container img {
+    transform: scale(1.1);
+}
+
+.project-body {
+    padding: 30px;
+}
+
+.project-category {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.project-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.btn-view-project {
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-bottom: 2px solid var(--accent-red);
+    padding-bottom: 5px;
+    transition: 0.3s;
+}
+
+.btn-view-project:hover {
+    color: var(--accent-red);
+    letter-spacing: 1px;
+}
+
+/* =========================================
+   PROJECT DETAIL: TOKYOJI PAGE
+   ========================================= */
+
+.tokyoji-hero {
+    position: relative;
+    background-color: var(--bg-secondary);
+    padding: 100px 0;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid #222;
+    margin-bottom: 50px;
+}
+
+/* Lingkaran Matahari Merah Jepang (Subtle) */
+.japan-sun {
+    position: absolute;
+    top: -80px;
+    right: 5%;
+    width: 350px;
+    height: 350px;
+    background-color: rgba(230, 57, 70, 0.15);
+    border-radius: 50%;
+    z-index: 1;
+    filter: blur(5px);
+}
+
+/* Siluet Tokyo di bagian bawah Header */
+.tokyo-skyline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 180px;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Tokyo_skyline_silhouette.svg/1024px-Tokyo_skyline_silhouette.svg.png');
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    opacity: 0.15;
+    z-index: 1;
+    filter: invert(1);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* =========================================
+   PROJECT DETAIL: AYANA MOTOR PAGE
+   ========================================= */
+
+.ayana-hero {
+    position: relative;
+    background-color: #111;
+    padding: 100px 0;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid #333;
+    margin-bottom: 50px;
+}
+
+/* Aksen Gear/Otomotif sebagai ganti Matahari Jepang */
+.motor-blur {
+    position: absolute;
+    top: -50px;
+    right: 5%;
+    width: 400px;
+    height: 400px;
+    background-color: rgba(230, 57, 70, 0.1);
+    border-radius: 50%;
+    z-index: 1;
+    filter: blur(60px);
+}
+
+.engine-silhouette {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 200px;
+    background-image: url('https://www.transparenttextures.com/patterns/carbon-fibre.png'); 
+    opacity: 0.1;
+    z-index: 1;
+}
+
+.ig-grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.ig-post {
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 8px;
+    border: 1px solid #222;
+    transition: transform 0.3s ease;
+}
+
+.ig-post:hover {
+    transform: scale(1.02);
+    border-color: #E63946;
+}
+
+.ig-post img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
