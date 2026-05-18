@@ -1,9 +1,7 @@
 <?php
-
 ini_set('display_errors', '1');
 error_reporting(E_ALL);
 
-// Create temp storage directories
 foreach ([
     '/tmp/storage/app/public',
     '/tmp/storage/framework/cache/data',
@@ -15,18 +13,20 @@ foreach ([
 }
 
 define('LARAVEL_START', microtime(true));
-
 require __DIR__ . '/../vendor/autoload.php';
 
 $app = require_once __DIR__ . '/../bootstrap/app.php';
-
-// Override storage path for Vercel read-only filesystem
 $app->useStoragePath('/tmp/storage');
 
-$kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
+// Force debug on
+$app->bind('config', function() use ($app) {
+    $config = new \Illuminate\Config\Repository(require __DIR__ . '/../config/app.php');
+    return $config;
+});
 
+$kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
 $response = $kernel->handle(
     $request = Illuminate\Http\Request::capture()
-)->send();
+);
 
-$kernel->terminate($request, $response);
+echo $response->getContent();
